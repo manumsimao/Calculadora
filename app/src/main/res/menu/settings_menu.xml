@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@drawable/ic_settings"
+        android:title="settings"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/basicMI"
+                android:title="Modo básico"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/advancedMI"
+                android:title="Modo Avançado"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+</menu>
