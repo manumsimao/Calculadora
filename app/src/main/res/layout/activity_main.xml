@@ -7,12 +7,21 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/operationTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/_0"
+        android:textAlignment="textEnd"
+        android:textSize="40sp" />
+
+    <TextView
         android:id="@+id/numberTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="@string/_0"
         android:textAlignment="textEnd"
-        android:textSize="70sp" />
+        android:textSize="70sp"
+        android:textColor="@color/black"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,258 +34,249 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:visibility="gone">
-
+            android:visibility="gone"
+            style="?android:buttonBarStyle">
             <Button
                 android:id="@+id/squareRootB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="symbolClick"
-                android:text="√"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/sqrt"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                 android:background="@color/light_gray"/>
 
             <Button
                 android:id="@+id/expoB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="symbolClick"
-                android:text="xⁿ"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/pow"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@color/light_gray"/>
 
             <Button
                 android:id="@+id/percentageB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="symbolClick"
-                android:text="%"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/percentage"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@color/light_gray"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            style="?android:buttonBarStyle">
 
             <Button
                 android:id="@+id/sevenNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="7"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_7"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/eightNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="8"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_8"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/nineNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="9"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_9"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/plusB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="symbolClick"
-                android:text="+"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/plus"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@color/light_gray"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            style="?android:buttonBarStyle">
 
             <Button
                 android:id="@+id/fourNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="4"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_4"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                />
 
             <Button
                 android:id="@+id/fiveNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="5"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_5"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/sixNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="6"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_6"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/minusB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="symbolClick"
-                android:text="-"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/minus"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@color/light_gray"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            style="?android:buttonBarStyle">
 
             <Button
                 android:id="@+id/oneNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="1"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_1"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/twoNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="2"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_2"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/threeNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="3"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_3"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/timesB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="symbolClick"
-                android:text="*"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/times"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@color/light_gray"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            style="?android:buttonBarStyle">
 
             <Button
                 android:id="@+id/zeroNB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/_0"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/dotB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="numberClick"
-                android:text="."
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/dot"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:id="@+id/equalsB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="calculate"
-                android:text="="
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/equal"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@color/light_gray"/>
 
             <Button
                 android:id="@+id/divideB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="symbolClick"
-                android:text="/"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/divide"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@color/light_gray"/>
 
             <Button
                 android:id="@+id/clearB"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:onClick="reset"
-                android:text="C"
-                android:textColor="@color/black"
-                android:textSize="60sp" />
+                android:text="@string/c"
+                android:textSize="50sp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:background="@color/light_gray"/>
         </LinearLayout>
-
-
     </LinearLayout>
-
 </LinearLayout>

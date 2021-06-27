@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private var number1String = ""
     private var number2String = ""
     private var operation = ""
+    private var fullExpression = ""
     private var resultado = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,25 +39,58 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun numberClick(view: View) {
-        var b: Button = view as Button
+        var buttonText: String = (view as Button).text.toString()
         if (operation == "") {
-            number1String += b.text
+            if (buttonText == ".") {
+                if (!number1String.contains(".")) {
+                    if (number1String == "") {
+                        number1String += "0"
+                    }
+                    number1String += buttonText
+                }
+            } else {
+                number1String += buttonText
+            }
+            fullExpression = number1String
             activityMainBinding.numberTV.text = number1String
+            activityMainBinding.operationTV.text = fullExpression
         } else {
-            number2String += b.text
+            if (buttonText == ".") {
+                if (!number2String.contains(".")) {
+                    if (number2String == "") {
+                        number2String += "0"
+                    }
+                    number2String += buttonText
+                    fullExpression += buttonText
+                }
+            } else {
+                number2String += buttonText
+                fullExpression += buttonText
+            }
             activityMainBinding.numberTV.text = number2String
+            activityMainBinding.operationTV.text = fullExpression
         }
     }
 
     fun symbolClick(view: View) {
-        var op: String = (view as Button).text as String
+        var symbol: String = (view as Button).text.toString()
         if (operation == "") {
-            operation = op
-            if(operation == "√") {
+            fullExpression += " $symbol "
+            activityMainBinding.operationTV.text = fullExpression
+            operation = symbol
+            if (operation == "√") {
                 calculate(view)
             }
         } else {
+            if (!fullExpression.contains("=")) {
+                fullExpression += "="
+                activityMainBinding.operationTV.text = fullExpression
+            }
             calculate(view)
+        }
+
+        if (resultado != 0f && symbol != "√") {
+            nextOperation(symbol)
         }
     }
 
@@ -65,37 +99,62 @@ class MainActivity : AppCompatActivity() {
             var number1 = number1String.toFloat()
             resultado = sqrt(number1)
             activityMainBinding.numberTV.text = resultado.toString()
-            reset(view)
+            number2String = ""
         }
         if (number1String != "" && number2String != "") {
+
             var number1 = number1String.toFloat()
             var number2 = number2String.toFloat()
-            if (operation == "+") {
-                resultado = number1 + number2
-            } else if (operation == "-") {
-                resultado = number1 - number2
-            } else if (operation == "*") {
-                resultado = number1 * number2
-            } else if (operation == "/") {
-                resultado = number1 / number2
-            } else if (operation == "√") {
-                resultado = sqrt(number1)
-            } else if (operation == "xⁿ") {
-                resultado = number1.pow(number2)
-            } else if (operation == "%") {
-                resultado = (number1 / 100) * number2
+            when (operation) {
+                "+" -> {
+                    resultado = number1 + number2
+                }
+                "-" -> {
+                    resultado = number1 - number2
+                }
+                "*" -> {
+                    resultado = number1 * number2
+                }
+                "/" -> {
+                    resultado = number1 / number2
+                }
+                "√" -> {
+                    resultado = sqrt(number1)
+                }
+                "xⁿ" -> {
+                    resultado = number1.pow(number2)
+                }
+                "%" -> {
+                    resultado = (number1 / 100) * number2
+                }
             }
-            activityMainBinding.numberTV.text = resultado.toString()
-            reset(view)
         }
+        activityMainBinding.numberTV.text = resultado.toString()
+
+        nextOperation(null)
     }
 
     fun reset(view: View) {
-        number1String = ""
-        number2String = ""
-        operation = ""
-        if (view.id == R.id.clearB)
+        if (view.id == R.id.clearB) {
+            number1String = ""
+            number2String = ""
+            fullExpression = ""
+            operation = ""
             activityMainBinding.numberTV.text = "0"
+            activityMainBinding.operationTV.text = "0"
+            resultado = 0f
+        }
     }
 
+    private fun nextOperation(op: String?) {
+        number1String = resultado.toString()
+        operation = ""
+        fullExpression = number1String
+        number2String = ""
+        if (op != null) {
+            operation = op
+            fullExpression += " $op "
+        }
+        activityMainBinding.operationTV.text = fullExpression
+    }
 }
